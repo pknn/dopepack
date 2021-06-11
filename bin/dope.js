@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var consola_1 = __importDefault(require("consola"));
+var commands_1 = require("./commands");
 function exec() {
-    consola_1.default.info('HI');
+    var command = commands_1.getCommand();
+    console.log(command.opts());
 }
 exec();

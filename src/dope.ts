@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-import consola from 'consola'
+import { getCommand } from './commands'
 
 function exec() {
-  consola.info('HI')
+  const command = getCommand()
+  console.log(command.opts())
 }
 
 exec()
