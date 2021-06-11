@@ -11,8 +11,7 @@
   "scripts": {
     "prebuild": "rm -rf bin",
     "postbuild": "cp package.json bin/",
-    "build": "tsc -p .",
-    "start": "node bin/dope.js"
+    "build": "tsc -p ."
   },
   "devDependencies": {
     "@types/node": "^15.12.2",
