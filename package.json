@@ -1,0 +1,10 @@
+{
+  "name": "dopepack",
+  "version": "0.0.0",
+  "description": "Dope Node package packer / publisher",
+  "main": "index.js",
+  "repository": "https://github.com/pknn/dopepack",
+  "author": "Pakanon Pantisawat",
+  "license": "MIT",
+  "private": false
+}
