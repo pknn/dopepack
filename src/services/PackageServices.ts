@@ -1,11 +1,22 @@
 import fs from 'fs'
-import { fromVersionString } from '../helpers/Misc'
+import { fromVersionString, toPrettyJsonString, toVersionString } from '../helpers/Misc'
 import { Version } from '../models/Version'
 
-export const getCurrentVersion = (packFilePath: string): Version => {
+const getPackJson = (packFilePath: string): Record<string, unknown> => {
   const packFile = fs.readFileSync(packFilePath, {
-    encoding: 'utf-8',
+    encoding: 'utf8',
   })
-  const packJson = JSON.parse(packFile)
-  return fromVersionString(packJson.version)
+  return JSON.parse(packFile)
+}
+
+export const getCurrentVersion = (packFilePath: string): Version => {
+  const packJson = getPackJson(packFilePath)
+  return fromVersionString(packJson.version as string)
+}
+
+export const setNewVersion = (packFilePath: string, newVersion: Version): void => {
+  const packJson = getPackJson(packFilePath)
+  const newVersionString = toVersionString(newVersion)
+  packJson.version = newVersionString
+  fs.writeFileSync(packFilePath, toPrettyJsonString(packJson))
 }

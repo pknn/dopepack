@@ -16,3 +16,5 @@ export const toVersionString = (version: Version): string =>
   Object.values(version)
     .map((v) => v.toString())
     .join('.')
+
+export const toPrettyJsonString = (object: Record<string, unknown>): string => JSON.stringify(object, (_, v) => v, 2)
