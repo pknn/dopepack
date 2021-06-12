@@ -8,10 +8,22 @@ const consola_1 = __importDefault(require("consola"));
 const Misc_1 = require("./helpers/Misc");
 const PackageServices_1 = require("./services/PackageServices");
 const upgradeSemanticVersion = (packFilePath, upgradeOption) => {
-    consola_1.default.start('Starting Semantic Version Upgrade Process');
-    const currentVersion = PackageServices_1.getCurrentVersion(packFilePath);
-    const upgradedVersion = Misc_1.toUpgradedVersion(currentVersion, upgradeOption);
-    consola_1.default.info(`Upgrading from ${Misc_1.toVersionString(currentVersion)} -> ${Misc_1.toVersionString(upgradedVersion)}`);
+    consola_1.default.start('Semantic Version Upgrade Process');
+    try {
+        const currentVersion = PackageServices_1.getCurrentVersion(packFilePath);
+        const upgradedVersion = Misc_1.toUpgradedVersion(currentVersion, upgradeOption);
+        consola_1.default.info(`Upgrading from ${Misc_1.toVersionString(currentVersion)} -> ${Misc_1.toVersionString(upgradedVersion)}`);
+        PackageServices_1.setNewVersion(packFilePath, upgradedVersion);
+        consola_1.default.success(`Finished Semantic Version Upgrade Process`);
+    }
+    catch (error) {
+        if (error.code === 'ENOENT') {
+            consola_1.default.error('Semantic Version Upgrade Process failed:', `Cannot find file ${packFilePath}`);
+        }
+        else {
+            consola_1.default.error('Semantic Version Upgrade Process failed with Unknown Error:\n', error);
+        }
+    }
 };
 const execute = (sourcePath, packFilePath, upgradeOption) => {
     const packFileRelativePath = Misc_1.toRelativePath(packFilePath);
