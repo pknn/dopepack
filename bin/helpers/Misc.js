@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toRelativePath = exports.toUpgradedVersion = exports.toPrettyJsonString = exports.toVersionString = exports.fromVersionString = void 0;
+exports.getBackupPath = exports.toRelativePath = exports.toUpgradedVersion = exports.toPrettyJsonString = exports.toVersionString = exports.fromVersionString = void 0;
 const path_1 = __importDefault(require("path"));
 const Undefined_1 = require("./Undefined");
 const fromVersionString = (versionString) => {
@@ -37,3 +37,5 @@ const toUpgradedVersion = (currentVersion, option) => {
 exports.toUpgradedVersion = toUpgradedVersion;
 const toRelativePath = (packFilePath) => path_1.default.join(process.cwd(), packFilePath);
 exports.toRelativePath = toRelativePath;
+const getBackupPath = (packFilePath) => packFilePath + '.bak';
+exports.getBackupPath = getBackupPath;

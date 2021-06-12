@@ -5,3 +5,4 @@ export declare const toVersionString: (version: Version) => string;
 export declare const toPrettyJsonString: (object: Record<string, unknown>) => string;
 export declare const toUpgradedVersion: (currentVersion: Version, option: UpgradeOption) => Version;
 export declare const toRelativePath: (packFilePath: string) => string;
+export declare const getBackupPath: (packFilePath: string) => string;

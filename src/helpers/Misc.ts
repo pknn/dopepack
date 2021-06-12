@@ -38,3 +38,5 @@ export const toUpgradedVersion = (currentVersion: Version, option: UpgradeOption
 }
 
 export const toRelativePath = (packFilePath: string): string => path.join(process.cwd(), packFilePath)
+
+export const getBackupPath = (packFilePath: string): string => packFilePath + '.bak'
