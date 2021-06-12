@@ -19,7 +19,7 @@ const upgradeSemanticVersion = (packFilePath, upgradeOption) => {
         PackageServices_1.setNewVersion(packFileRelativePath, upgradedVersion);
         consola_1.default.success(`Finished Semantic version upgrade process`);
         if (upgradeOption === 'dry') {
-            consola_1.default.info('CLI was run with "dry" option, will not continue with publication process');
+            consola_1.default.success('CLI was run with "dry" option, will not continue with publication process');
             PackageServices_1.clearBackupPackJson(packFileRelativePath);
             process.exit(0);
         }
