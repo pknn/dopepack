@@ -2,9 +2,9 @@
 
 import { getCommand } from './commands'
 
-function exec() {
+function run() {
   const command = getCommand()
   console.log(command.opts())
 }
 
-exec()
+run()
