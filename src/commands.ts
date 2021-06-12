@@ -1,5 +1,5 @@
 import commander, { Command, Option } from 'commander'
-import { UpgradeOptions } from '../models/CommandOptions'
+import { UpgradeOptions } from './models/CommandOptions'
 
 export const getCommand = (): commander.Command => {
   const command = new Command('dopepub')

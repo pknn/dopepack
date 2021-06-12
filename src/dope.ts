@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
 import { getCommand } from './commands'
+import { execute } from './executions'
 
 function run() {
   const command = getCommand()
-  console.log(command.opts())
+  const { src, package: packFile, upgrade } = command.opts()
+  execute(src, packFile, upgrade)
 }
 
 run()
