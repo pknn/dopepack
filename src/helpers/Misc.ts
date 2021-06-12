@@ -1,3 +1,4 @@
+import path from 'path'
 import { UpgradeOption } from '../models/CommandOptions'
 import { Version } from '../models/Version'
 import { getOr } from './Undefined'
@@ -35,3 +36,5 @@ export const toUpgradedVersion = (currentVersion: Version, option: UpgradeOption
 
   return Object.fromEntries(upgradedVersion) as Version
 }
+
+export const toRelativePath = (packFilePath: string): string => path.join(process.cwd(), packFilePath)
