@@ -29,7 +29,6 @@ export const restoreBackupPackJson = (packFilePath: string): void => {
   const backupPackJsonFilePath = getBackupPath(packFilePath)
   const backupPackJson = getPackJson(backupPackJsonFilePath)
   fs.writeFileSync(packFilePath, toPrettyJsonString(backupPackJson))
-  clearBackupPackJson(packFilePath)
 }
 
 export const setNewVersion = (packFilePath: string, newVersion: Version): void => {

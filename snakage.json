@@ -1,6 +1,6 @@
 {
-  "name": "dopepub",
-  "version": "7.0.0",
+  "name": "dopepunb",
+  "version": "8.0.0",
   "description": "Dope Node package publisher",
   "main": "bin/dope.js",
   "bin": "bin/dope.js",

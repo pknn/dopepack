@@ -32,7 +32,6 @@ const restoreBackupPackJson = (packFilePath) => {
     const backupPackJsonFilePath = Misc_1.getBackupPath(packFilePath);
     const backupPackJson = getPackJson(backupPackJsonFilePath);
     fs_1.default.writeFileSync(packFilePath, Misc_1.toPrettyJsonString(backupPackJson));
-    exports.clearBackupPackJson(packFilePath);
 };
 exports.restoreBackupPackJson = restoreBackupPackJson;
 const setNewVersion = (packFilePath, newVersion) => {
